@@ -97,6 +97,18 @@
     }
 }
 
+.pagination{
+    text-align: center;
+    button{
+        font-size: 26px;
+        svg{
+            vertical-align: text-button;
+        }
+    
+    }
+
+}
+
 .solicitation-view{
     .divider{
         max-width: 1200px;

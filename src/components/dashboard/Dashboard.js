@@ -3,18 +3,25 @@ import "./dashboard.scss";
 import { Link } from 'react-router-dom';
 import { get } from 'utils/fetch';
 import timeSince from 'utils/timesince';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 export default function Dashboard() {
 
     const [solicitations, setSolicitations] = useState([]);
-    const [ordering, setOrdering] = useState("-created_at");
+    const [ordering, setOrdering] = useState("-solicitacao_data");
+    const [offset, setOffset] = useState(0);  
+    const [count, setCount] = useState(0);  
 
     useEffect(() => {
-        get(`/api/solicitation/?ordering=-solicitacao_data`).then(res => setSolicitations(res.results));
-    }, [ordering])
+        get(`/api/solicitation/?ordering=${ordering}&offset=${offset}`).then(res => {
+            setSolicitations(res.results);
+            setCount(res.count);
+        });
+    }, [ordering, offset])
 
 
     function toggleOrdering(name){
+        setOffset(0);
         if (ordering === name){
             setOrdering("-" + name)
         } else{
@@ -76,6 +83,20 @@ export default function Dashboard() {
                         </Link>
                     )}
 
+                </div>
+
+                <div className="pagination">
+                    <button 
+                        disabled={(offset - solicitations.length) < 0}
+                        onClick={() => (offset - solicitations.length) >= 0 && setOffset(offset - solicitations.length)}>
+                        <FiChevronLeft/>
+                    </button>
+                        Pagina {1 + Math.floor(offset / solicitations.length)} de {Math.ceil(count / solicitations.length)}
+                    <button
+                        disabled={(offset + solicitations.length) > count}
+                        onClick={() => (offset + solicitations.length) < count && setOffset(offset + solicitations.length)}>
+                        <FiChevronRight/>
+                    </button>
                 </div>
             </div>
         </div>
