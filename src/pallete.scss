@@ -1,0 +1,11 @@
+$color: #1d63c5;
+$light: #0099c8;
+$dark: #1a708f;//#5a9107;
+
+$mobile-width: 768px;
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width}) {
+    @content;
+  }
+}

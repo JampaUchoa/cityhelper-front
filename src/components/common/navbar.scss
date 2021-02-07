@@ -1,0 +1,170 @@
+@import 'pallete.scss';
+
+.normal .outline-img{
+    opacity: 0;
+}
+
+.dark .normal-img{
+    opacity: 0;
+}
+
+.rtl .options{
+    left: 0;
+    right: -100px;
+    @include mobile{
+        left: -130px !important;
+        right: 40px;
+    }
+
+}
+.user-card{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    .user-avatar{
+        margin-inline-end: 2px;
+    }
+}
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: transparent;
+    color: #fff;
+    z-index: 99;
+    transition: 0.28s all linear;
+    .aside{
+        position: relative;
+    }
+    .container{
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        padding: 15px;
+    }
+    &+*{
+        padding-top: 60px;
+    }
+
+
+    .main-link {
+//        background-color: #fff;
+        margin: 0 5px;
+        font-weight: bold;
+//        color: #00a414;
+        border-radius: 20px;
+        background-color: $color;
+        color: #fff;
+        transition: 0.28s all linear;
+        padding: 10px 15px;
+        &:hover{
+            color: #fff;
+            background-color: $dark;
+        }
+    }
+    
+
+    a, a:hover{
+        color: #0e61d5;
+    }
+
+    &.dark{
+        padding: 0;
+        font-weight: bold;
+        color: #0e61d5;
+    }
+
+    &.normal{
+        box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.32);
+        background-color: #fff;
+        color: #333;
+        a, a:hover{
+            color: $dark;
+        }
+        .main-link{
+            color: #fff;    
+        }
+        .hamburguer{
+            color: $dark;
+        }
+        .logo img{
+            margin: 0;
+        }    
+    }
+
+    .logo{
+        img{
+            height: 40px;
+            margin: 0;
+            position: absolute;
+            transition: 0.25s;
+        }
+    }
+
+    .hamburguer{
+        display: none;
+        font-size: 45px;
+        padding: 10px 15px 0;
+        color: $dark;
+        @include mobile{
+            display: block;
+        }
+    }
+    &.dark .login-actions{
+        a{
+            color: #fff;
+        }
+    }
+    .login-actions{
+
+        li{
+            display: inline-block;
+        }
+    }
+
+    .sections{
+        background-color: #fff;
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.2s all;
+        width: 150px;
+        left: -100px;
+        position: absolute;
+        margin: 5px 0 0;
+        box-shadow: 0 2px 6px rgba(0, 21, 64, 0.14), 0 10px 20px rgba(0, 21, 64, 0.05);
+        border-radius: 10px;
+        &.open{
+            max-height: 220px;
+        }
+
+        @include mobile{
+            li{
+                display: block;
+            }
+            ul{
+                margin: 0 0 10px;
+            }
+        }
+    }
+
+    ul{
+        list-style: none;
+        margin: 0 !important;
+        padding: 0;
+        margin: 19px 0 10px;
+    }
+
+    
+    li{
+        padding: 10px 15px;
+
+    }
+
+    
+
+}
+
+.navbar-spacer{
+    height: 60px;
+}

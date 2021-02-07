@@ -1,0 +1,108 @@
+@import 'pallete.scss';
+
+.home-page{
+    padding: 0 !important;
+    background: linear-gradient(141deg, #2261b9, #0073ff 50%, #04b2ff);
+    height: 100vh;
+    .banner{
+        margin: 0 auto;
+        //max-width: 1200px;
+        padding: 120px 0 30px;
+        //border-bottom: 1px solid;
+        //background-color: rgb(44, 44, 220);
+        //background: linear-gradient(141deg, #0546a1, #2761b3 50%, #04b2ff);
+        position: relative;
+
+        .container{
+            display: flex;
+            justify-content: space-between;
+            @include mobile{
+                display: block
+            }
+        }
+        .text{
+            text-align: left;
+            margin: 0 40px;
+            max-width: 400px;
+            color: #fff;
+            z-index: 2;
+
+            h1{
+                font-size: 4em;
+                font-weight: 300;
+                @include mobile{
+                    margin: 0;
+                }
+    
+            }
+            h3{
+                font-weight: normal;
+            }
+            button{
+                margin: 10px 0 0;
+                color: #0e61d5;
+                background-color: #fff;
+                border: none;
+                border-radius: 28px;
+                font-size: 20px;
+                padding: 14px 28px;
+                line-height: 24px;
+                cursor: pointer;
+                font-weight: 500;
+                box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+            }
+        }
+
+    }
+
+
+
+    .promotional{
+        margin: 200px 0 60px;
+        text-align: center;
+        color: #fff;
+        h2, p{
+            margin: 0;
+        }
+        p{
+            margin: 5px 0 15px;
+        }
+        button{
+            margin: 0 10px;
+            padding: 10px 20px;
+        }
+        .main{
+            color: #fff;
+            background-color: #1d63c5;
+        }
+    }
+    .last{
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        color: #fff;
+        @include mobile{
+            flex-wrap: wrap;
+            text-align: center;
+            justify-content: center;
+            .social-networks{
+                margin: 0 0 10px;
+            }
+        }
+    }
+    .social-networks{
+        h2 {
+            text-transform: uppercase;
+            font-size: 16px;
+            margin: 0 0 5px;
+            text-align: center;
+        }
+        svg{
+            font-size: 28px;
+            margin: 0 10px;
+            color: #fff;
+        }
+    }
+}

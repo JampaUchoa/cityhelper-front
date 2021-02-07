@@ -1,0 +1,119 @@
+@import 'pallete.scss';
+
+.dashboard{
+    max-width: 1200px;
+    margin: 0 auto;
+    .title-bar{
+        display: flex;
+        h2{
+            flex-grow: 1;
+        }
+    }
+    .no-solicitations{
+        background-color: rgb(237, 237, 237);
+        color: #555;
+        text-align: center;
+        padding: 40px 20px;
+        border: 1px solid #DEE1E5;
+        border-radius: 10px;
+        h3{
+            margin: 5px 0 15px;
+        }
+        button{
+            margin: 0;
+        }
+    }
+    .solicitations-score{
+        //margin: 0 20px;
+        .header{
+            border-bottom: 1px solid #DEE1E5;
+            margin: 0 0 10px;
+            *{
+                color: #555 !important;
+                font-weight: normal !important;
+            }
+            &:hover{
+                background-color: #fff !important;
+            }
+            @include mobile{
+                display: none !important;
+            }
+        }
+        .solicitation{
+            display: grid;
+            grid-template-columns: 140px 1fr 120px 80px;
+            justify-content: space-between;
+            padding: 7px 15px;
+            transition: 0.2s all;
+            align-items: center;
+            color: #333;
+            @include mobile{
+                grid-template-columns: 1fr 100px;
+                gap: 5px;
+                .score-container{
+                    grid-column-start: 2;
+                }
+                .solicitation-theme{
+                    grid-column-start: 1;
+                }
+                .solicitation-result{
+                    grid-row-start: 1;
+                    grid-column-start: 2;
+                }
+            }
+            &:hover{
+                background-color: #e9f6ff;
+            }
+            .solicitation-title{
+                font-weight: bold;
+                color: #084eb0;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+
+            .score-bar{
+                //height: 100%;
+                max-height: 18px;
+                width: 100%;
+                background-color: #eee;
+    
+                .competency-bar{
+                    height: 4px;
+                    margin: 0 0 1px;
+                    //display: inline-block;
+                    background-color: var(--color);
+                    @include mobile{
+                        margin: 0 0 1px;
+                    }
+                }
+            }
+            .solicitation-result{
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.solicitation-view{
+    .divider{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .description{
+        max-width: 600px;
+        margin: 15px 0 15px;
+    }
+    .divider{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+    }
+}
