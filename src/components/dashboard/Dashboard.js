@@ -55,9 +55,9 @@ export default function Dashboard() {
             <div className="solicitations-score">
                 <div className="title-bar">
                     <h2> Solicitações </h2>
-                    <Link to={"/chamados/criar"}>
+                    {/* <Link to={"/chamados/criar"}>
                         <button className="main-btn"> Nova Solicitação</button>
-                    </Link>
+                    </Link> */}
                 </div>
 
                 <div>
