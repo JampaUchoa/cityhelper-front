@@ -3,7 +3,7 @@ import "./dashboard.scss";
 import { Link } from 'react-router-dom';
 import { get } from 'utils/fetch';
 import timeSince from 'utils/timesince';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight, FiSearch } from 'react-icons/fi';
 
 export default function Dashboard() {
 
@@ -60,7 +60,10 @@ export default function Dashboard() {
                     </Link>
                 </div>
 
-                <input type="search" placeholder="Pesquisar tudo..." onChange={(e) => searchAll(e.target.value)}/>
+                <div>
+                    <FiSearch/>
+                    <input className="search-all" type="search" placeholder="Pesquisar tudo..." onChange={(e) => searchAll(e.target.value)}/>
+                </div>
 
                 <div className="solicitations">
                     <div className="solicitation header">
@@ -69,6 +72,12 @@ export default function Dashboard() {
                         </div>
                         <div className="solicitation-theme">
                             Descrição
+                        </div>
+                        <div className="score-container">
+                            Vitimas
+                        </div>
+                        <div className="score-container">
+                            Mortes
                         </div>
                         <div className="score-container">
                             Status
@@ -84,8 +93,52 @@ export default function Dashboard() {
                         <div className="solicitation-theme">
                             <input type="search" placeholder="" onChange={(e) => searchAttr("solicitacao_descricao", e.target.value)}/>
                         </div>
+                        <div className="solicitation-victims">
+                            <select onChange={(e) => searchAttr("solicitacao_vitimas", e.target.value)} value={searchTarget["solicitacao_vitimas"]} required>
+                                <option value="">
+                                    ...
+                                </option>
+
+                                <option value="true">
+                                    Sim
+                                </option>
+                                <option value="false">
+                                    Não
+                                </option>
+
+						    </select>
+                        </div>
+                        <div className="solicitation-deaths">
+                            <select onChange={(e) => searchAttr("solicitacao_vitimas_fatais", e.target.value)} value={searchTarget["solicitacao_vitimas_fatais"]} required>
+                                <option value="">
+                                    ...
+                                </option>
+
+                                <option value="true">
+                                    Sim
+                                </option>
+                                <option value="false">
+                                    Não
+                                </option>
+
+						    </select>
+                        </div>
+
                         <div className="score-container" >
-                            <input type="search" placeholder="" onChange={(e) => searchAttr("processo_situacao", e.target.value)}/>
+                            {/* <input type="search" placeholder="" /> */}
+                            <select onChange={(e) => searchAttr("processo_status", e.target.value)} value={searchTarget["processo_status"]} required>
+                                <option value="">
+                                    Selecione...
+                                </option>
+
+                                <option value="TRAMITAÇÃO">
+                                    Tramitação
+                                </option>
+                                <option value="ARQUIVADO">
+                                    Arquivado
+                                </option>
+
+						    </select>
                         </div>
                         <div className="solicitation-result" >
                             <input type="date" placeholder="" onChange={(e) => searchAttr("solicitacao_data", e.target.value)}/>
@@ -109,7 +162,14 @@ export default function Dashboard() {
 
                             </div>
                             <div className="solicitation-situation">
-                                {solicitation.processo_situacao}
+                                {solicitation.solicitacao_vitimas ? "🔴" : null}
+                            </div>
+                            <div className="solicitation-situation">
+                                {solicitation.solicitacao_vitimas_fatais ? "☠️" : null}
+                            </div>
+
+                            <div className="solicitation-situation">
+                                {solicitation.processo_status}
                             </div>
                             <div className="solicitation-date">
                                 há {timeSince(solicitation.solicitacao_data)}

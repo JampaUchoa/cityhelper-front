@@ -38,7 +38,7 @@ export default function Login() {
         <div className="auth">
             <div className="auth-box">
                 <div className="img-container">
-                    <img src={"https://aiboxlab.org/img/logo-aibox.png"} alt="" />
+                    <img src={"https://avatars.githubusercontent.com/u/13726064"} alt="" />
                 </div>
                 <h2 className="title">Acesse sua conta</h2>
 

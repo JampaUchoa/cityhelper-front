@@ -56,7 +56,7 @@ export default function Register() {
         <div className="auth">
             <form className={`auth-box ${form.userType}`} onSubmit={sendForm}>
                 <div className="img-container">
-                    <img src={"https://aiboxlab.org/img/logo-aibox.png"} alt="" />
+                    <img src={"https://avatars.githubusercontent.com/u/13726064"} alt="" />
                 </div>
 
                 {form.userType !== "invite" ?

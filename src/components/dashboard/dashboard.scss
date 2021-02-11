@@ -1,6 +1,8 @@
 @import 'pallete.scss';
 
 .dashboard{
+    max-width: 1200px;
+    margin: 0 auto;
 
     input{
         box-sizing: content-box;
@@ -9,14 +11,23 @@
         border: 1px solid #a0a0a0;
     }
 
-    max-width: 1200px;
-    margin: 0 auto;
+
+
     .title-bar{
         display: flex;
         h2{
             flex-grow: 1;
         }
     }
+
+    .search-all{
+        border: none;
+        border-bottom: 1px solid #DEE1E5;
+        padding: 7px;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
     .no-solicitations{
         background-color: rgb(237, 237, 237);
         color: #555;
@@ -49,7 +60,8 @@
         }
         .solicitation{
             display: grid;
-            grid-template-columns: 140px 1fr 120px 80px;
+            grid-template-columns: 140px 1fr 40px 40px 120px 80px;
+            gap: 20px;
             justify-content: space-between;
             padding: 7px 15px;
             transition: 0.2s all;

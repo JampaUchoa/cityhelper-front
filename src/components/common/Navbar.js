@@ -22,8 +22,8 @@ export default function Navbar() {
                 <div className="container">
                     <div className="logo">
                         <Link to={"/dashboard"}>
-                            <img src={"https://aiboxlab.org/img/logo-aibox.png"} alt="logo" className="normal-img" />
-                            <img src={"https://aiboxlab.org/img/logo-aibox.png"} alt="logo" className="outline-img" />
+                            <img src={"https://avatars.githubusercontent.com/u/13726064"} alt="logo" className="normal-img" />
+                            <img src={"https://avatars.githubusercontent.com/u/13726064"} alt="logo" className="outline-img" />
                         </Link>
                     </div>
 
