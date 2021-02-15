@@ -126,16 +126,18 @@ export default function Dashboard() {
 
                         <div className="score-container" >
                             {/* <input type="search" placeholder="" /> */}
-                            <select onChange={(e) => searchAttr("processo_status", e.target.value)} value={searchTarget["processo_status"]} required>
+                            <select onChange={(e) => searchAttr("processo_situacao", e.target.value)} value={searchTarget["processo_situacao"]} required>
                                 <option value="">
                                     Selecione...
                                 </option>
-
-                                <option value="TRAMITAÇÃO">
-                                    Tramitação
+                                <option value="aberto">
+                                    Aberto
                                 </option>
-                                <option value="ARQUIVADO">
-                                    Arquivado
+                                <option value="execucao">
+                                    Em execução
+                                </option>
+                                <option value="completo">
+                                    Completo
                                 </option>
 
 						    </select>
@@ -169,7 +171,7 @@ export default function Dashboard() {
                             </div>
 
                             <div className="solicitation-situation">
-                                {solicitation.processo_status}
+                                {solicitation.processo_situacao}
                             </div>
                             <div className="solicitation-date">
                                 há {timeSince(solicitation.solicitacao_data)}
