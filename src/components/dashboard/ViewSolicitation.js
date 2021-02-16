@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import "./dashboard.scss";
-import { Link } from 'react-router-dom';
 import { get } from 'utils/fetch';
 import timeSince from 'utils/timesince';
 

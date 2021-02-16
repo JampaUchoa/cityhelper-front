@@ -1,11 +1,6 @@
-import { getUserLogin } from "./user";
-
 export const get = async (endpoint, type = "json") => {
 
     const headers = {}
-    if (getUserLogin()) {
-      headers['Authorization'] = `Token ${window.localStorage.getItem("tokenAuth")}`;
-    }
   
     return new Promise((resolve, reject) => {
       fetch(endpoint, {
@@ -41,10 +36,7 @@ export const post = async (endpoint, postData, method = "POST") => {
       'Content-Type': contentType
     }
   
-    if (getUserLogin()) {
-      headers['Authorization'] = `Token ${window.localStorage.getItem("tokenAuth")}`;
-    }
-  
+ 
     // Form data bug, that if specified will break the uploading
     // https://github.com/github/fetch/issues/505
     if (contentType === "multipart/form-data") {
